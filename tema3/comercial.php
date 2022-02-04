@@ -1,6 +1,8 @@
 <?php
 /**
  * Clase de ejemplo del patrón Singleton en PHP
+ * El objetivo del patrón es que sólo exista una instancia de
+ * la clase
  */
 class Comercial{
     private $_nombre;
