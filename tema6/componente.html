@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <div id="app-7">
+        <ol>
+            <!--
+            Ahora proporcionamos a cada todo-item con el objeto todo
+            que representa, para que su contenido pueda ser dinámico.
+            También necesitamos proporcionar a cada componente con una "clave",
+            que vamos a explicar más adelante.
+          -->
+            <todo-item v-for="item in groceryList" v-bind:todo="item" v-bind:key="item.id">
+            </todo-item>
+        </ol>
+    </div>
+    <div id="app">
+        <app-nav></app-nav>
+        <app-view>
+            <app-sidebar></app-sidebar>
+            <app-content></app-content>
+        </app-view>
+    </div>
+    <script>
+        Vue.component('todo-item', {
+            props: ['todo'],
+            template: '<li>{{ todo.text }}</li>'
+        });
+
+        var app7 = new Vue({
+            el: '#app-7',
+            data: {
+                groceryList: [
+                    { id: 0, text: 'Vegetales' },
+                    { id: 1, text: 'Queso' },
+                    { id: 2, text: 'Cualquier otra cosa que se supone que los humanos coman' }
+                ]
+            }
+        });
+    </script>
+</body>
+
+</html>

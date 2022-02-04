@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{ foo }}</p>
+        <!-- esto ya no actualizará `foo`! -->
+        <button v-on:click="foo = 'baz'">Cámbialo</button>
+    </div>
+    <script>
+        var obj = {
+            foo: 'bar'
+        };
+
+        Object.freeze(obj);
+
+        new Vue({
+            el: '#app',
+            data: obj
+        });
+    </script>
+</body>
+</html>
