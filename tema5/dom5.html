@@ -1,0 +1,16 @@
+<!--Ejemplo de valor nulo en el elemento body del DOM, el navegador todavía no lo
+ha leído cuando es consultado -->
+<html>
+
+<head>
+  <script>
+    alert( "From HEAD: " + document.body ); // null, no hay  <body> aún
+  </script>
+</head>
+
+<body>
+  <script>
+    alert( "From BODY: " + document.body ); // HTMLBodyElement, ahora existe
+  </script>
+</body>
+</html>
