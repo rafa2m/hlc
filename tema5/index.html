@@ -1,9 +1,22 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8"/>
-    </head>
-    <body>
-       <script></script> 
-    </body>
+
+<head>
+  <meta charset="UTF-8" />
+</head>
+
+<body>
+  <script>
+    var table = document.getElementById("table");
+    var tableAttrs = table.attributes; // Node/interfaz Element
+    for (var i = 0; i < tableAttrs.length; i++) {
+      // interfaz HTMLTableElement: atributo border
+      if (tableAttrs[i].nodeName.toLowerCase() == "border")
+        table.border = "1";
+    }
+    // interfaz HTMLTableElement: atributo summary
+    table.summary = "nota: borde aumentado";
+  </script>
+</body>
+
 </html>
