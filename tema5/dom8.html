@@ -1,0 +1,90 @@
+<!--
+RECORRIENDO EL DOM
+
+Ciertos tipos de elementos del DOM pueden tener 
+propiedades adicionales, específicas de su tipo, 
+por conveniencia.
+
+Las tablas son un gran ejemplo de ello, y representan 
+un particular caso importante:
+table.rows – la colección de elementos<tr> de la tabla.
+table.caption/tHead/tFoot – referencias a los elementos 
+<caption>, <thead>, <tfoot>.
+
+<thead>, <tfoot>, <tbody> estos elementos proporcionan 
+las propiedades de las filas.
+
+tbody.rows – colección de filas <tr>.
+
+<tr>:
+
+tr.cells – la colección de celdas <td> y <th> dentro 
+del <tr> dado.
+
+tr.sectionRowIndex – la posición (índice) del <tr> 
+dado dentro del <thead>/<tbody>/<tfoot> adjunto.
+
+tr.rowIndex – el número de <tr> en la tabla en su 
+conjunto (incluyendo todas las filas de una tabla).
+
+<td> and <th>:
+
+td.cellIndex – el número de celdas dentro del 
+adjunto <tr>.
+
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+</head>
+<body>
+<table id="tabla" border="1">
+    <tbody>
+        <tr>
+            <td>1,1</td>
+            <td>1,2</td>
+            <td>1,3</td>
+            <td>1,4</td>
+            <td>1,5</td>
+        </tr>
+        <tr>
+            <td>2,1</td>
+            <td>2,2</td>
+            <td>2,3</td>
+            <td>2,4</td>
+            <td>2,5</td>
+        </tr>
+        <tr>
+            <td>3,1</td>
+            <td>3,2</td>
+            <td>3,3</td>
+            <td>3,4</td>
+            <td>3,5</td>
+        </tr>
+        <tr>
+            <td>4,1</td>
+            <td>4,2</td>
+            <td>4,3</td>
+            <td>4,4</td>
+            <td>4,5</td>
+        </tr>
+        <tr>
+            <td>5,1</td>
+            <td>5,2</td>
+            <td>5,3</td>
+            <td>5,4</td>
+            <td>5,5</td>
+        </tr>
+    </tbody>
+</table>
+<script>
+    //se obtiene la referencia a la tabla por su id
+    let tabla = document.getElementById("tabla");
+    //se recorren las filas (rows) de la tabla y por cada
+    //fila se accede a sus celdas (cells)
+    for(let i=0;i<tabla.rows.length;i++)
+        tabla.rows[i].cells[i].style.backgroundColor="green";    
+</script>
+</body>
+</html>

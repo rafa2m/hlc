@@ -1,0 +1,39 @@
+<html><head></head><body>
+    <form name="buscar">
+      <label>Buscar en la página:
+        <input type="text" name="buscar">
+      </label>
+      <input type="submit" value="Busca!">
+    </form>
+  
+    <hr>
+  
+    <form name="buscar-persona">
+      Buscar una persona:
+      <table id="age-table">
+        <tbody><tr>
+          <td>Edad:</td>
+          <td id="lista-edades">
+            <label>
+              <input type="radio" name="edad" value="joven">menor de 18</label>
+            <label>
+              <input type="radio" name="edad" value="adulto">18-50</label>
+            <label>
+              <input type="radio" name="edad" value="mayor">mayor de 50</label>
+          </td>
+        </tr>
+  
+        <tr>
+          <td>Más:</td>
+          <td>
+            <input type="text" name="info[0]">
+            <input type="text" name="info[1]">
+            <input type="text" name="info[2]">
+          </td>
+        </tr>
+  
+      </tbody></table>
+  
+      <input type="submit" value="Busca!">
+    </form>
+  </body></html>
