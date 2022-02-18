@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+
+  <ul>
+    <li>Animales
+      <ul>
+        <li>Mamíferos
+          <ul>
+            <li>Vacas</li>
+            <li>Burros</li>
+            <li>Perros</li>
+            <li>Tigres</li>
+          </ul>
+        </li>
+        <li>Otros
+          <ul>
+            <li>Serpientes</li>
+            <li>Aves</li>
+            <li>Lagartos</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>Peces
+      <ul>
+        <li>Acuario
+          <ul>
+            <li>Guppy</li>
+            <li>Angelote</li>
+          </ul>
+        </li>
+        <li>Mar
+          <ul>
+            <li>Trucha de mar</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <script>
+    //1.1
+    for (let li of document.querySelectorAll('li')) {
+      console.log(li.data);
+    }
+    //1.2
+    //Podemos leer el texto del primer nodo hijo de li, que es el nodo de texto:
+    for (let li of document.querySelectorAll('li')) {
+      let title = li.firstChild.data;
+
+      // el título es el texto en <li> antes de cualquier otro nodo
+      console.log(title + " num. li anidados=" + li.getElementsByTagName('li').length);
+    }
+  </script>
+
+</body>
+</html>
