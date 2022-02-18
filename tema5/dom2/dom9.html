@@ -1,0 +1,117 @@
+<--!Los diferentes nodos DOM pueden tener diferentes propiedades. 
+Por ejemplo, un nodo de elemento correspondiente a la etiqueta <a> 
+tiene propiedades relacionadas con el enlace, y el correspondiente a
+<input> tiene propiedades relacionadas con la entrada y así sucesivamente. 
+Los nodos de texto no son lo mismo que los nodos de elementos. 
+Pero también hay propiedades y métodos comunes entre todos ellos 
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+</head>
+
+<body>
+  2º DAM
+  <!-- Comentario -->
+  <div>¡Hola, mundo!</div>
+  <form name="buscar">
+      <label>Buscar en la página:
+        <input type="text" name="buscar">
+      </label>
+      <input type="submit" value="Busca!">
+  </form>
+  <div id="news">
+    <h1>¡Titular!</h1>
+    <p>¡Rusia amenaza a Ucrania!</p>
+  </div>
+  <div id="elem1"></div>
+  <div id="elem2"></div>
+  <div>Ambos divs a continuación están ocultos</div>
+  <div hidden>Con el atributo "hidden"</div >
+  <div id="elem">JavaScript asignó la propiedad "hidden"</div>
+  <script>
+        //CONSOLE.LOG y CONSOLE.DIR
+        //muestra el árbol DOM del elemento.
+        console.log(document.body);
+        //muestra el elemento como un objeto DOM, es bueno para explorar sus propiedades.
+        console.dir(document.body);
+        
+        //NODETYPE
+        //La propiedad nodeType proporciona una forma “anticuada” más de obtener el “tipo” de un nodo DOM.
+        //Tiene un valor numérico:
+
+        //elem.nodeType == 1 para nodos de elementos,
+        //elem.nodeType == 3 //para nodos de texto,
+        //elem.nodeType == 9 //para el objeto de documento,
+
+        let elem = document.body;
+
+        // vamos a examinar lo que es
+        alert(elem.nodeType); // 1 => elemento
+
+        // Y el primer hijo es...
+        alert(elem.firstChild.nodeType); // 3 => texto
+
+        // para el objeto de tipo documento, el tipo es 9
+        alert( document.nodeType ); // 9
+        
+        //NODENAME Y TAGNAME
+        //Dado un nodo DOM, podemos leer su nombre de etiqueta en las 
+        //propiedades de nodeName o tagName
+        //La propiedad tagName existe solo para los nodos Element.
+        //El nodeName se define para cualquier Node:
+        // para comentarios
+        alert( document.body.firstChild.tagName ); // undefined (no es un elemento)
+        alert( document.body.firstChild.nodeName ); // #comment
+
+        // para documentos
+        alert( document.tagName ); // undefined (no es un elemento)
+        alert( document.nodeName ); // #document
+
+        //INNERHTML
+        //La propiedad innerHTML permite obtener el HTML dentro del elemento como 
+        //un string.También podemos modificarlo. Así que es una de las formas más 
+        //poderosas de cambiar la página.
+
+        //no utilizar innerHTML+='', porque no añade sino que reemplaza
+        alert( document.body.innerHTML ); // leer el contenido actual
+        document.body.innerHTML = 'El nuevo BODY!'; // reemplazar
+
+        //OUTERHTML
+        //La propiedad outerHTML contiene el HTML completo del elemento. 
+        //Eso es como innerHTML más el elemento en sí.
+        let div = document.querySelector('div');
+        // reemplaza div.outerHTML con <p>...</p>
+        div.outerHTML = '<p>Un nuevo elemento</p>'; // (*)
+        // ¡'div' sigue siendo el mismo!
+        alert(div.outerHTML); // <div>¡Hola, mundo!</div> (**)
+
+        //DATA o NODEVALUE
+        //La propiedad innerHTML solo es válida para los nodos de elementos.
+        //Otros tipos de nodos, como los nodos de texto usan data y nodeValue
+        let text = document.body.firstChild;
+        alert(text.data); // 2º DAM
+
+        let comment = text.nextSibling;
+        alert(comment.data); // Comentario
+
+        //TEXTCONTENT
+        //El textContent proporciona acceso al texto dentro del elemento: 
+        //solo texto, menos todas las <tags>
+        alert(news.textContent); //Titular Rusia amenaza a Ucrania
+
+        let name = prompt("¿Cuál es tu nombre?", "<b>¡Winnie-Pooh!</b>");
+
+        elem1.innerHTML = name;
+        elem2.textContent = name;
+
+        //HIDDEN
+        //El atributo “hidden” y la propiedad DOM especifican si el 
+        //elemento es visible o no.
+        elem.hidden = true;
+    </script>
+</body>
+
+</html>
