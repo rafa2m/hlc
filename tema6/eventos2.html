@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <script src="vue.min.js"></script>
+</head>
+
+<body>
+    
+    <div id="app">
+        <input @keyup.enter="onEnter" />
+    </div>
+
+    <script>
+        //Vue también permite agregar modificadores clave para 
+        //v-on cuando se escuchan
+        //eventos de teclado:
+        //In data() :
+        new Vue({
+            name: "app",
+            methods: {
+                onEnter() {
+                    console.log("pressed enter");
+                },
+            },
+        });
+    </script>
+</body>
+
+</html>

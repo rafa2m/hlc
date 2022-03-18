@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <script src="vue.js"></script>  
+</head>
+<body>
+    <div id="my-first-component">
+        <button-counter></button-counter>
+        <button-counter></button-counter>
+        <button-counter></button-counter>
+    </div>
+
+    <script>
+      //definir un nuevo componente, que será un botón
+      //que al hacer click actue como contador
+      Vue.component('button-counter',{
+          data: function(){
+              return{
+                  count:0
+              }
+          },
+          template:'<button v-on:click="count++">Me has pulsado {{count}} veces.</button>'
+      })
+      //instancio el componente para colocarlo en el div
+      new Vue({el:'#my-first-component'})
+    </script>    
+</body>
+
+</html>

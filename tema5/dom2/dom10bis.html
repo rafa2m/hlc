@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+</head>
+
+<body id="test" something="non-standard">
+    <div id="elem" about="JavaScript"></div>
+    <input>
+    <script>        
+        document.body.myData={
+            name:'César',
+            title: 'Emperador'
+        };
+        //alert(document.body.myData.title);
+
+        document.body.showMyData=function(){
+            alert(this.myData.name);
+        };
+
+        document.body.showMyData();
+
+
+
+    </script>
+</body>
+</html>

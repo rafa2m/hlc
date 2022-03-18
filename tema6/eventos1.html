@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="example-1">
+        <button v-on:click="counter += 1">Agregar 1</button>
+        <p>Se ha hecho clic en el botón de arriba {{ counter }} veces.</p>
+    </div>
+    <div id="example-2">
+        <!-- `saludar` es el nombre de un método definido a continuación -->
+        <button v-on:click="saludar">Saludar</button>
+        
+    </div>
+    <br>
+    <div id="example-3">
+        <button v-on:click="di('hola')">Di hola</button>
+        <button v-on:click="di('que')">Di que</button>
+    </div>
+    <script>
+        //Podemos usar la directiva v-on 
+        //para escuchar eventos DOM y ejecutar algunos JavaScript
+        //cuando se activan.
+        var example1 = new Vue({
+            el: '#example-1',
+            data: {
+                counter: 0
+            }
+        });
+
+        //la directiva v-on también permite la llamada
+        //a un función como respuesta al evento
+        var example2 = new Vue({
+            el: '#example-2',
+            data: {
+                name: 'Vue.js'
+            },
+            // definir métodos bajo el objeto `methods`
+            methods: {
+                saludar: function (event) {
+                    // `this` dentro de los métodos apunta a la instancia de Vue
+                    alert('Hola ' + this.name + '!')
+                    // `evento` es el origen del evento DOM nativo
+                    if (event) {
+                        alert(event.target.tagName)
+                    }
+                }
+            }
+        });
+
+        //también es posible la llamada a funciones
+        //en los manejadores de eventos en línea
+        new Vue({
+            el: '#example-3',
+            methods: {
+                di: function (mensaje) {
+                    alert(mensaje)
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
