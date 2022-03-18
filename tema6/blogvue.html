@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <script src="vue.js"></script>
+</head>
+
+<body>
+    <div id="my-second-component">
+        <blog-post title="Viaja"></blog-post>
+    </div>
+    <script>
+       //nuevo componente para utiliar propiedades que se 
+       //pasan como parámetro
+       Vue.component('blog-post',{
+           props:['title'],
+           template:'<h3>{{title}}</h3>' 
+        })        
+        new Vue({el:'#my-second-component'})
+    </script>
+</body>
+
+</html>
